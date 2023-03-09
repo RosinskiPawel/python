@@ -103,3 +103,21 @@ print(string2.startswith("be"))
 print(string3.lower().startswith("be"))
 print(string4.lower().lstrip().startswith("be"))
 
+#----------4.4-------
+#1
+question = ("What's your name?")
+answer = input(question)
+print("Hello,", answer)
+
+#2
+task = ("Please, type few words")
+words = input(task)
+print("You have typed: ", words.upper())
+
+#3
+task = ("Please, type a short text")
+words = input(task)
+print("characters: ", len(words))
+
+
+
