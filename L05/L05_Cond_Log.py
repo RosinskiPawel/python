@@ -156,9 +156,9 @@ total_tails = 0
 for i in range(10000):
     x = random.choices(box, k=2)
     if x == ['heads', 'heads']:
-        total_heads = suma_heads + 1
-    else x == ['tails', 'tails']:
-        total_tails = suma_tails + 1
+        total_heads = total_heads + 1
+    elif x == ['tails', 'tails']:
+        total_tails = total_tails + 1
 print(f"Heads: {total_heads}. Tails: {total_tails}")
 
    
@@ -196,6 +196,8 @@ print(f"{winnerA*100/10000}%")
 
         
         
+
+
 
 
 
