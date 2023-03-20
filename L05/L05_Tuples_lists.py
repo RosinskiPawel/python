@@ -35,8 +35,9 @@
 ##
 
 uni = [['CIT', 2175, 37704], ['Harvard', 19627, 39849],
-       ['MIT', 10566, 40732], ['Priceton', 7802, 37000],
-       ['Rice', 5879, 35551],['Stanford', 19535, 40569], ['Yale', 11701, 40500]]
+               ['MIT', 10566, 40732], ['Priceton', 7802, 37000],
+               ['Rice', 5879, 35551],['Stanford', 19535, 40569],
+               ['Yale', 11701, 40500]]
 ##def get_Uni_name(item):
 ##    return item[0]
 ##list_of_names = []
@@ -45,22 +46,41 @@ uni = [['CIT', 2175, 37704], ['Harvard', 19627, 39849],
 ##
 ##print(list_of_names)
 ##
-number_of_students = []
+
 def get_nr_of_stud(uni):
+    number_of_students = []
     for n in uni:
         number_of_students.append(n[1])
     return (sum(number_of_students))
     
-list_of_fees = []
+
 def get_list_of_fees(uni):
+    list_of_fees = []
     for n in uni:
         list_of_fees.append(n[2])
     return (sum(list_of_fees))
+
+def median(x):
+    x.sort()
+    if len(x)%2!=0:
+        return x[round(len(x)/2)]
+    else:
+        return (x[int(len(x)/2)] + x[int(len(x)/2+1)]) / 2
     
+    
+
+
+
 def enrollment_stats(uni):
-    
-    
-    print(f"Number of students: {get_nr_of_stud(uni)}, value of fees: {get_list_of_fees(uni)}")
+    st_mean = round(get_nr_of_stud(uni)/len(uni))
+    st_median = 0
+  
+    print("***************************************************")
+    print(f"Total students: {get_nr_of_stud(uni)}")
+    print(f"Total tuition: $ {get_list_of_fees(uni)}")
+    print()
+    print(f"Student mean: {st_mean}")
+    print(f"Student median: ")
 
     
     
