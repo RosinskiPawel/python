@@ -178,24 +178,35 @@ candB = 0
 winnerA = 0
 winnerB = 0
 
+##
+##for n in range(10_000):
+##    if prob_of_winning(.87) == 0:
+##        candA = candA + 1
+##    if prob_of_winning(.65) == 0:
+##        candA = candA + 1
+##    if prob_of_winning(.17) == 0:
+##        candA = candA + 1
+##    else: candB = candB + 1
+##    if candA>candB:
+##            winnerA = winnerA+1
+##    else: winnerB = winnerB+1
+
+
 for n in range(10_000):
-    if prob_of_winning(.87) == 0:
-        candA = candA + 1
-    if prob_of_winning(.65) == 0:
-        candA = candA + 1
-    if prob_of_winning(.17) == 0:
+    if (prob_of_winning(.87) == 0) and (prob_of_winning(.65) == 0 or prob_of_winning(.17) == 0):
         candA = candA + 1
     else: candB = candB + 1
     if candA>candB:
             winnerA = winnerA+1
-    else: winnerB = winnerB+1
-    
-print(f"{winnerA*100/10000}%")
+    else: winnerB = winnerB+1    
+print(f"Candidate A = {winnerA*100/10000}%, Candidate B = {winnerB*100/10000}%")
         
         
 
         
         
+
+
 
 
 
