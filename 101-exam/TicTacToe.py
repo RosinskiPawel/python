@@ -48,4 +48,42 @@ while len(pool) > 0:
     
    
     
+    def horizontal_win():
+        for i in range(0,2):
+            if((' ' in matrix[i] == False) and ('O' in matrix[i] == False)):
+                print("You win!")
+            elif((' ' in matrix[i] == False) and ('X' in matrix[i] == False)):
+                print("I win!")
+                break
+            
+    def vertical_win():
+        vert_matrix0 = [matrix[0][0], matrix[1][0], matrix[2][0]]
+        vert_matrix1 = [matrix[0][1], matrix[1][1], matrix[2][1]]
+        vert_matrix2 = [matrix[0][2], matrix[1][2], matrix[2][2]]
+        
+        for i in range(0,2):
+            if((' ' in vert_matrix0 == False) and ('O' in vert_matrix0 == False)):
+                print("You win!")
+            elif((' ' in vert_matrix0 == False) and ('X' in vert_matrix0 == False)):
+                print("I win!")
+                break
+        for i in range(0,2):
+             if((' ' in vert_matrix1 == False) and ('O' in vert_matrix1 == False)):
+                print("You win!")
+             elif((' ' in vert_matrix1 == False) and ('X' in vert_matrix1 == False)):
+                print("I win!")
+                break
+        for i in range(0,2):
+             if((' ' in vert_matrix2 == False) and ('O' in vert_matrix2 == False)):
+                print("You win!")
+             elif((' ' in vert_matrix2 == False) and ('X' in vert_matrix2 == False)):
+                 print("I win!")
+                 break
+    
+    def diagonal_win():
+        diag_matrix0 = [matrix[0][0], matrix[1][1], matrix[2][2]]
+        diag_matrix1 = [matrix[0][2], matrix[1][1], matrix[2][0]]
+        
+        
+                
     
