@@ -1,9 +1,10 @@
 import random
-list_of_options = ['rock', 'paper', 'scissors']
+
+list_of_options = ('rock', 'paper', 'scissors')
 invitation = input("If you want to play, please type 'y' for yes or 'n' for no  ").lower()
 while invitation == 'y':
     player = input("Please choose one option: scissors, rock or papper: ").lower()
-    comp = list_of_options[random.randint(0, len(list_of_options)-1)]
+    comp = random.choice(list_of_options)
     if player == comp:
         print("It's a draw")
     elif ((comp == 'scissors') and (player == 'rock')) or ((comp == 'rock') and (player == 'paper')) or ((comp == 'paper') and (player == 'scissors')):
