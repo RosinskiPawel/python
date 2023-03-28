@@ -3,7 +3,7 @@ import random
 list_of_options = ('rock', 'paper', 'scissors')
 invitation = input("If you want to play, please type 'y' for yes or 'n' for no  ").lower()
 while invitation == 'y':
-    player = input("Please choose one option: scissors, rock or papper: ").lower()
+    player = input("Please choose one option: scissors, rock or paper: ").lower()
     comp = random.choice(list_of_options)
     if player == comp:
         print("It's a draw")
