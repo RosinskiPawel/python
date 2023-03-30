@@ -1,7 +1,6 @@
 import random
 
 matrix_master = [['0.0','0.1','0.2'], ['1.0','1.1','1.2'], ['2.0','2.1','2.2']]
-print(f"This is the matrix we will use to play.\n\n{matrix_master[0]}\n{matrix_master[1]}\n{matrix_master[2]}\n")
 matrix = [[' ', ' ',' '], [' ', ' ', ' '], [' ', ' ', ' ']]
 pool = [0.0, 0.1, 0.2, 1.0, 1.1, 1.2, 2.0, 2.1, 2.2]
 winner = False
@@ -65,11 +64,12 @@ def diagonal_win(a, b):
 #         print("The End")
 #         break
     
-players_to_choose = input(f"Please choose the players:\n Human vs. Human = 1\n Human vs. Computer = 2")
-if (players_to_choose == '2'):
+players_to_choose = input(f"Please choose the players:\n Human vs. Computer = 1\n Player1 vs. Player2 = 2\n\n\t")
+print(f"This is the matrix we will use to play.\n\n{matrix_master[0]}\n{matrix_master[1]}\n{matrix_master[2]}\n")
+if (players_to_choose == '1'):
     while winner == False:
     
-        chosen_by_player = input("Please put the 'X' ")
+        chosen_by_player = input("Please put the 'X': ")
         player = chosen_by_player.split('.')
         matrix[int(player[0])][int(player[1])] = 'X'
         pool.remove(float(chosen_by_player))
@@ -93,7 +93,7 @@ if (players_to_choose == '2'):
 else:
     while winner == False:
     
-        chosen_by_player = input("Player 1: Please put the 'X' ")
+        chosen_by_player = input("Player 1: Please put the 'X': ")
         player = chosen_by_player.split('.')
         matrix[int(player[0])][int(player[1])] = 'X'
         pool.remove(float(chosen_by_player))
@@ -105,7 +105,7 @@ else:
             print("The End. Draw!")
             break
         
-        chosen_by_player2 = input("Player 2: Please put the 'O' ")
+        chosen_by_player2 = input("Player 2: Please put the 'O': ")
         player2 = chosen_by_player2.split('.')
         matrix[int(player2[0])][int(player2[1])] = 'O'
         pool.remove(float(chosen_by_player2))

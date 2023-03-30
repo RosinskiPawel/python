@@ -54,18 +54,25 @@ def get_nr_of_stud(uni):
     return (sum(number_of_students))
     
 
+##def get_list_of_fees(uni):
+##    list_of_fees = []
+##    for n in uni:
+##        list_of_fees.append(n[2])
+##    return (sum(list_of_fees))
+
 def get_list_of_fees(uni):
     list_of_fees = []
     for n in uni:
         list_of_fees.append(n[2])
-    return (sum(list_of_fees))
+        value = int(sum(list_of_fees))
+    return (f"{value:,.2f}")
 
-def median(x):
-    x.sort()
-    if len(x)%2!=0:
-        return x[round(len(x)/2)]
+def median(uni):
+    uni.sort()
+    if len(uni)%2!=0:
+        return uni[round(len(uni)/2)]
     else:
-        return (x[int(len(x)/2)] + x[int(len(x)/2+1)]) / 2
+        return (uni[int(len(uni)/2)] + uni[int(len(uni)/2+1)]) / 2
     
     
 
@@ -88,4 +95,14 @@ def enrollment_stats(uni):
 ##    for n in uni:
 ##        number_of_students.append(get_nr_of_stud(n))
 ##print(number_of_students)
-    
+
+
+
+def horizontal_win():
+    for i in range(0,3):
+        if(((' ' in matrix[i]) == False) and (('O' in matrix[i]) == False)):
+            return "You win!"
+        elif(((' ' in matrix[i]) == False) and (('X' in matrix[i]) == False)):
+            return "I win!"
+
+        
