@@ -118,12 +118,9 @@ while True:
                             if (horizontal_win('Player 1', 'Player 2') == True or vertical_win('Player 1', 'Player 2') == True or diagonal_win('Player 1', 'Player 2') == True):
                                 print("The End")
                                 break
-                            break
-                    
+                            break                       
+            break                                                                                                                                          
                 
-            break
-                                                                                                                                                  
-            
 
     question = input("Wanna play again? (y/n):  ").lower()
     if (question == 'y'): 
