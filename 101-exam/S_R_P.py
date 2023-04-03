@@ -6,7 +6,7 @@ invitation = input("If you want to play, please type 'y' for yes or 'n' for no\n
 while invitation == 'y':
     
     player = input("Please choose one option: scissors, rock or paper:\n\t ").lower()
-    while (player in list_of_options) == False:
+    while player not in list_of_options:
         
         print("Wrong input.")
         player = input("Please choose one option: scissors, rock or paper: \n\t").lower()
