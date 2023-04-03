@@ -5,11 +5,11 @@ winner = False
 
 def horizontal_win(a,b):
     for i in range(0,3):
-        if (' ' in matrix[i]) == False and ('O' in matrix[i]) == False:
+        if matrix[i].count('X') == 3:
             print(f"{a} wins!")
             winner = True 
             return winner
-        elif (' ' in matrix[i]) == False and ('X' in matrix[i]) == False:
+        elif matrix[i].count('O') == 3:
             print(f"{b} wins!")
             winner = True 
             return winner
@@ -17,26 +17,26 @@ def horizontal_win(a,b):
 def vertical_win(a, b):
     matrix_vert = [[matrix[0][0], matrix[1][0], matrix[2][0]], [matrix[0][1], matrix[1][1], matrix[2][1]], [matrix[0][2], matrix[1][2], matrix[2][2]]]
     for i in range(0,3):
-        if (' ' in matrix_vert[i]) == False and ('O' in matrix_vert[i]) == False:
+        if matrix_vert[i].count('X') == 3:
             print(f"{a} wins!")
             winner = True 
             return winner
-        elif (' ' in matrix_vert[i]) == False and ('X' in matrix_vert[i]) == False:
+        elif matrix_vert[i].count('O') == 3:
             print(f"{b} wins!")
             winner = True 
-            return winner
+            return winner 
                             
 def diagonal_win(a, b):
     matrix_diag = [[matrix[0][0], matrix[1][1], matrix[2][2]], [matrix[0][2], matrix[1][1], matrix[2][0]]]
     for i in range(0,2):
-        if (' ' in matrix_diag[i]) == False and ('O' in matrix_diag[i]) == False:
+        if matrix_diag[i].count('X') == 3:
             print(f"{a} wins!")
             winner = True 
             return winner
-        elif (' ' in matrix_diag[i]) == False and ('X' in matrix_diag[i]) == False:
+        elif matrix_diag[i].count('O') == 3:
             print(f"{b} wins!")
             winner = True 
-            return winner
+            return winner 
 
 while True:
     
@@ -87,7 +87,7 @@ while True:
                 try:
                     chosen_by_player = input("Player 1: Please put the 'X': ")
                     player = chosen_by_player.split('.')
-                    pool.remove(float(chosen_by_player))
+                    # pool.remove(float(chosen_by_player))
                     matrix[int(player[0])][int(player[1])] = 'X'
                         
                 except (IndexError, ValueError):
@@ -98,14 +98,15 @@ while True:
                     if (horizontal_win('Player 1', 'Player 2') == True or vertical_win('Player 1', 'Player 2') == True or diagonal_win('Player 1', 'Player 2') == True):
                         print("The End")
                         break
-                    elif len(pool)==0:
+                    # elif len(pool)==0:
+                    elif (matrix[0]+matrix[1]+matrix[2]).count(' ') == 0:
                         print("The End. Draw!")
                         break
                     while True:
                         try:
                             chosen_by_player2 = input("Player 2: Please put the 'O': ")
                             player2 = chosen_by_player2.split('.')
-                            pool.remove(float(chosen_by_player2))
+                            # pool.remove(float(chosen_by_player2))
                             matrix[int(player2[0])][int(player2[1])] = 'O'
                             
                             

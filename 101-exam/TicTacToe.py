@@ -3,13 +3,13 @@ import random
 matrix_master = [['0.0','0.1','0.2'], ['1.0','1.1','1.2'], ['2.0','2.1','2.2']]
 winner = False
 
-def horizontal_win(a,b):
+def horizontal_win(a, b):
     for i in range(0,3):
-        if (' ' in matrix[i]) == False and ('O' in matrix[i]) == False:
+        if matrix[i].count('X') == 3:
             print(f"{a} wins!")
             winner = True 
             return winner
-        elif (' ' in matrix[i]) == False and ('X' in matrix[i]) == False:
+        elif matrix[i].count('O') == 3:
             print(f"{b} wins!")
             winner = True 
             return winner
@@ -17,26 +17,26 @@ def horizontal_win(a,b):
 def vertical_win(a, b):
     matrix_vert = [[matrix[0][0], matrix[1][0], matrix[2][0]], [matrix[0][1], matrix[1][1], matrix[2][1]], [matrix[0][2], matrix[1][2], matrix[2][2]]]
     for i in range(0,3):
-        if (' ' in matrix_vert[i]) == False and ('O' in matrix_vert[i]) == False:
+        if matrix_vert[i].count('X') == 3:
             print(f"{a} wins!")
             winner = True 
             return winner
-        elif (' ' in matrix_vert[i]) == False and ('X' in matrix_vert[i]) == False:
+        elif matrix_vert[i].count('O') == 3:
             print(f"{b} wins!")
             winner = True 
-            return winner
+            return winner 
                             
 def diagonal_win(a, b):
     matrix_diag = [[matrix[0][0], matrix[1][1], matrix[2][2]], [matrix[0][2], matrix[1][1], matrix[2][0]]]
     for i in range(0,2):
-        if (' ' in matrix_diag[i]) == False and ('O' in matrix_diag[i]) == False:
+        if matrix_diag[i].count('X') == 3:
             print(f"{a} wins!")
             winner = True 
             return winner
-        elif (' ' in matrix_diag[i]) == False and ('X' in matrix_diag[i]) == False:
+        elif matrix_diag[i].count('O') == 3:
             print(f"{b} wins!")
             winner = True 
-            return winner
+            return winner 
 
 while True:
     
