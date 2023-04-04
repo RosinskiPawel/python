@@ -5,39 +5,27 @@ winner = False
 
 def horizontal_win(a, b):
     for i in range(0,3):
-        if matrix[i].count('X') == 3:
+        if matrix[i].count(b) == 3:
             print(f"{a} wins!")
             winner = True 
-            return winner
-        elif matrix[i].count('O') == 3:
-            print(f"{b} wins!")
-            winner = True 
-            return winner
+            return winner          
                                    
 def vertical_win(a, b):
     matrix_vert = [[matrix[0][0], matrix[1][0], matrix[2][0]], [matrix[0][1], matrix[1][1], matrix[2][1]], [matrix[0][2], matrix[1][2], matrix[2][2]]]
     for i in range(0,3):
-        if matrix_vert[i].count('X') == 3:
+        if matrix_vert[i].count(b) == 3:
             print(f"{a} wins!")
             winner = True 
-            return winner
-        elif matrix_vert[i].count('O') == 3:
-            print(f"{b} wins!")
-            winner = True 
-            return winner 
+            return winner         
                             
 def diagonal_win(a, b):
     matrix_diag = [[matrix[0][0], matrix[1][1], matrix[2][2]], [matrix[0][2], matrix[1][1], matrix[2][0]]]
     for i in range(0,2):
-        if matrix_diag[i].count('X') == 3:
+        if matrix_diag[i].count(b) == 3:
             print(f"{a} wins!")
             winner = True 
             return winner
-        elif matrix_diag[i].count('O') == 3:
-            print(f"{b} wins!")
-            winner = True 
-            return winner 
-
+        
 while True:
     
     pool = [0.0, 0.1, 0.2, 1.0, 1.1, 1.2, 2.0, 2.1, 2.2]  
@@ -61,7 +49,7 @@ while True:
                
                 else:
                     print(f"{matrix[0]}\n{matrix[1]}\n{matrix[2]}")
-                    if (horizontal_win('Player', 'Computer') == True or vertical_win('Player', 'Computer') == True or diagonal_win('Player', 'Computer') == True):
+                    if (horizontal_win('Player', 'X') == True or vertical_win('Player', 'X') == True or diagonal_win('Player', 'X') == True):
                         print("The End")
                         break
                     elif len(pool)==0:
@@ -74,7 +62,7 @@ while True:
                         chosen_by_comp = str(random_from_pool).split('.')
                         matrix[int(chosen_by_comp[0])][int(chosen_by_comp[1])] = 'O'
                         print(f"{matrix[0]}\n{matrix[1]}\n{matrix[2]}\n")
-                        if (horizontal_win('Player', 'Computer') == True or vertical_win('Player', 'Computer') == True or diagonal_win('Player', 'Computer') == True):
+                        if (horizontal_win('Computer', 'O') == True or vertical_win('Computer', 'O') == True or diagonal_win('Computer', 'O') == True):
                             print("The End")
                             break
                         
@@ -86,26 +74,37 @@ while True:
             
                 try:
                     chosen_by_player = input("Player 1: Please put the 'X': ")
-                    player = chosen_by_player.split('.')
-                    pool.remove(float(chosen_by_player))
-                    matrix[int(player[0])][int(player[1])] = 'X'
+                    player1 = chosen_by_player.split('.')
+                    # pool.remove(float(chosen_by_player))
+                    # matrix[int(player[0])][int(player[1])] = 'X'
+                    if matrix[int(player1[0])][int(player1[1])] !=' ':
+                        print('Wrong value! Try again!')
+                        continue
+                    
+                    matrix[int(player1[0])][int(player1[1])] = 'X'
                         
                 except (IndexError, ValueError):
                         print("Wrong value! Try again!")
                     
                 else:
                     print(f"{matrix[0]}\n{matrix[1]}\n{matrix[2]}")
-                    if (horizontal_win('Player 1', 'Player 2') == True or vertical_win('Player 1', 'Player 2') == True or diagonal_win('Player 1', 'Player 2') == True):
+                    if (horizontal_win('Player 1', 'X') == True or vertical_win('Player 1', 'X') == True or diagonal_win('Player 1', 'X') == True):
                         print("The End")
                         break
-                    elif len(pool)==0:
+                    # elif len(pool)==0:
+                    elif (matrix[0]+matrix[1]+matrix[2]).count(' ') == 0:
                         print("The End. Draw!")
                         break
                     while True:
                         try:
                             chosen_by_player2 = input("Player 2: Please put the 'O': ")
                             player2 = chosen_by_player2.split('.')
-                            pool.remove(float(chosen_by_player2))
+                            
+                            # pool.remove(float(chosen_by_player2))
+                            
+                            if matrix[int(player2[0])][int(player2[1])] !=' ':
+                                print('Wrong value! Try again!')
+                                continue
                             matrix[int(player2[0])][int(player2[1])] = 'O'
                                                                                     
                         except (IndexError, ValueError):
@@ -113,10 +112,13 @@ while True:
                             
                         else:
                             print(f"{matrix[0]}\n{matrix[1]}\n{matrix[2]}\n")    
-                            if (horizontal_win('Player 1', 'Player 2') == True or vertical_win('Player 1', 'Player 2') == True or diagonal_win('Player 1', 'Player 2') == True):
+                            if (horizontal_win('Player 2', 'O') == True or vertical_win('Player 2', 'O') == True or diagonal_win('Player 2', 'O') == True):
                                 print("The End")
                                 break
-                            break                       
+                           
+                            break
+                    
+                            
             break      
 
     question = input("Wanna play again? (y/n):  ").lower()
