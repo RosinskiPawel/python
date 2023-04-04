@@ -7,24 +7,24 @@ def horizontal_win(a, b):
     for i in range(0,3):
         if matrix[i].count(b) == 3:
             print(f"{a} wins!")
-            winner = True 
-            return winner          
+            return True 
+    return False             
                                    
 def vertical_win(a, b):
     matrix_vert = [[matrix[0][0], matrix[1][0], matrix[2][0]], [matrix[0][1], matrix[1][1], matrix[2][1]], [matrix[0][2], matrix[1][2], matrix[2][2]]]
     for i in range(0,3):
         if matrix_vert[i].count(b) == 3:
             print(f"{a} wins!")
-            winner = True 
-            return winner         
+            return True 
+    return False           
                             
 def diagonal_win(a, b):
     matrix_diag = [[matrix[0][0], matrix[1][1], matrix[2][2]], [matrix[0][2], matrix[1][1], matrix[2][0]]]
     for i in range(0,2):
         if matrix_diag[i].count(b) == 3:
             print(f"{a} wins!")
-            winner = True 
-            return winner
+            return True 
+    return False     
         
 while True:
     
