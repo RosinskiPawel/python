@@ -1,0 +1,8 @@
+"You are just in the center of the room. Look up and say, what you see: "
+a spider
+is he black?
+    1. yes -> turn left and move 5 steps back. Where r u now? 
+        1. by the window - > Open the window. if you have a camera, take a photo of the bird on the tree. Else paint the picture.  -> 
+        2. by the door
+        3. by the table
+    2. no -> turn right and move 3 steps forward        
