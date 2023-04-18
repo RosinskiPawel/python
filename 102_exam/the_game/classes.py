@@ -1,7 +1,6 @@
 class Player:
-    def __init__(self, name, IQ_level):
+    def __init__(self, name):
         self.name = name
-        self.IQ_level = IQ_level
 
 
 class Items:

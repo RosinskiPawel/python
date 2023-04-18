@@ -1,3 +1,16 @@
+def openning():
+    f = open("the_game\\text\\intro.txt")
+    print(f.read())
+    question_1 = input("Do you want to read the letter? Y/N ").lower()
+
+    if question_1 == "y":
+        letter = open("the_game\\text\\letter.txt")
+        print(letter.read())
+    else:
+        print("No problem!")
+    return
+
+
 def move_forward(steps):
     print(f"Move forward {steps} steps")
 
