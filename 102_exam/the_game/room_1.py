@@ -9,11 +9,13 @@ from actions import *
 # f = open("the_game\\text\\intro.txt")
 # print(f.read())
 
-openning()
+if openning() == True:
+    player_1 = Player(input("What's your name? "))
 
-player_1 = Player(input("What's your name? "))
+    print(f"Welcome, {player_1.name}")
+else:
+    print("Bye!")
 
-print(f"Welcome, {player_1.name}")
 
 # coin = Items("coin", "under the table")
 # print(f"I have found the coin {coin.location}")

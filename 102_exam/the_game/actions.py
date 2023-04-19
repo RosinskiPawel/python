@@ -8,7 +8,8 @@ def openning():
         print(letter.read())
     else:
         print("No problem!")
-    return
+        return False
+    return True
 
 
 def move_forward(steps):
