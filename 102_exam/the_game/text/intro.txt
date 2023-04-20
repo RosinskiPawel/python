@@ -1,3 +1,8 @@
 "Hey you, yes you! Wake up! Stand up and sit down by the table. There is a message for you!"
 
 jestes na zew. chcesz wejśc do domu po pracy, jestes zmeczony, ale nie mozesz otworzyc eleektronicznego zamka kluczeczem w komorce, zastanawiaszsie co zrobic. znajdujesz kamień , wybijasz szybe w oknie, wchodzisz prze okno. w domu ciemno, zimno, cicho. Nie wiesz o co kaman, szukasz zapalek i swieczki, wysiadla ci komorka, jeste ciemno, nic nie widzisz. liczysz kroki, aby dojsc do kuchni, tam masz w szufladzie swieczke i zapalniczek, znajdujesz je, zapalasz i idziesz do salonu, szukasz przyczyny braku pradu, korki sa OK, u sasiadow pali sie swiatlo, 
+
+Player sida do stołu, czyta list, a tam 3-4 zadania fizyczne do wykonania (np. 10 przysiadaów, 10 pompek, 10 pajacyków i 10 krokwo do przodu i do tyłu). każde ćwiczenie to instancja klasy Ćwiczenia. Podczas ćwiczenia mierzony jest czas. przed rozpoczęciem ćwiczneia player naciska enter i zaczyna sie liczenia czasu, po wykonaniu ćwiczenia naciska enter i konczy suę liczenie czasu. każdy czas w milisekundach jest zapisywany w tablicy w osobnym pliku (time_to_ array) w osobnym katalogu, następnie jest sortownany i wszystkie wpisy pozostaje tam zachowane w  milisekundach, ale od najmneijszego do najwiekszego. Po zakończeniu ćwiczeń tworzony jest kolejny plik 'ranking.txt' w katalogu o nazwie 'out'. Zawiera on ranking czasów: nazwa ćwiczenia i czas w kolejności od najszybciej wykonanego. 
+Gdy łączny czas wykonywania zadań bedzie mniejszy od określonego progu, player dostaje nagrodę: zdrowy kręgosłup ;-)
+Możliwa opcja: przycisk "Q" przerywa działanie programu
+obsługa błędów
