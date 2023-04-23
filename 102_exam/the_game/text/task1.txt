@@ -1,0 +1,1 @@
+"You have to do 10 squats or push-ups. A result below 15 seconds will allow you to move on to the next task. Otherwise, you have to repeat this task. Press Enter once to start the timer and press it again to stop the timer."

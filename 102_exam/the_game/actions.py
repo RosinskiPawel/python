@@ -1,38 +1,83 @@
+import time
+from classes import *
+
+backpack = []
+pool_items = (
+    "cat",
+    "can opener",
+    "aspirin",
+    "chocolate bar",
+    "water",
+    "tablet",
+    "glasses",
+    "flashlight",
+    "home map",
+)
+
+
 def openning():
     f = open("the_game\\text\\intro.txt")
     print(f.read())
-    question_1 = input("Do you want to read the letter? Y/N ").lower()
-
+    player = Player(name=input("\nWhat's your name? \n"))
+    # name = input("What's your name? ")
+    question_1 = input(
+        f"\n{player.name}, are you ready for the first task? Y/N \n"
+    ).lower()
     if question_1 == "y":
-        letter = open("the_game\\text\\letter.txt")
-        print(letter.read())
+        print("Let's start!")
     else:
-        print("No problem!")
-        return False
-    return True
+        print("Bye!")
+        return
 
 
-def move_forward(steps):
-    print(f"Move forward {steps} steps")
+def task_one():
+    task1 = open("the_game\\text\\task1.txt")
+    print(task1.read())
+
+    choosen_excercise = Gym(
+        input("\nWhat excercise do you choose? \nSquats or push_ups\n").lower()
+    )
+
+    input("\nPress Enter to start\n")
+    start_time = time.time()
+    input("Press Enter to stop\n")
+    end_time = time.time()
+
+    time_total = round((end_time - start_time), 2)
+    print(
+        f"\nThis is your time: {time_total} seconds. You have burned ca. {Gym.burnedCalories(choosen_excercise.calories_per_min, time_total)} calories"
+    )
+    return time_total
 
 
-def move_back(steps):
-    print(f"Move back {steps} steps")
+def backpack_packing_init():
+    print(
+        "\nChoose three items from the list below that you think will be useful for the this task.\n"
+    )
+    for i in pool_items:
+        print(f"{pool_items.index(i)+1}. {i}")
+    print()
+    for i in range(3):
+        item = input(f"\nAdd {i+1}. item: ")
+        while item not in pool_items:
+            print("\nWrong item")
+            item = input(f"\nAdd {i+1}. item: ")
+        Player.backpack.append(item)
+    print(f"\nYou have chosen {Player.backpack}.")
 
 
-pocket = []
+def changing_items():
+    print(f"\nHere are your items: {Player.backpack}.")
+    num_of_items_del = int(input("\nHow many items do you want to delete? "))
 
+    for i in range(num_of_items_del):
+        item_to_delete = input(f"\nPlease choose the {i+1}.item to delete: ")
+        Player.backpack.remove(item_to_delete)
 
-def take(string):
-    pocket_numb = 4
-    if len(pocket) < pocket_numb:
-        pocket.append(string)
-        print(f"You have taken the {string}.")
-    else:
-        print(f"You can't take it. Your pockets are full.")
-    return
-
-
-def empty_pockets():
-    item = input("what do you want to remove from your pockets? ")
-    return pocket.remove(item)
+    for i in range(num_of_items_del):
+        item_to_add = input(f"\nPlease choose the {i+1}.item to add: ")
+        while item_to_add not in pool_items:
+            print("\nWrong item")
+            item_to_add = input(f"\nPlease choose the {i+1}.item to add: ")
+        Player.backpack.append(item_to_add)
+    print(f"\nHere are your new items: {Player.backpack}.")
