@@ -2,6 +2,7 @@ import time, pathlib, random
 from classes import *
 from actions import *
 
+
 openning()
 
 backpack_packing_init()
@@ -14,28 +15,31 @@ else:
     print(
         "\nYou feel thirsty and have a headache. Check if you have aspirin and water in your backpack. If you do, use them, otherwise you need to replenish your backpack.\n"
     )
+Player.show_backpack(Player)
+# print(f"\nHere are your items in backpack: {Player.backpack}\n")
+
 choice = input(
-    "\nWhat do you want to do now? '1': Check the backpack; '2' Change the items in my backpack or '3': Take aspirine and drink some water: \n"
+    "\nWhat do you want to do now? '1' Change the items in my backpack or '2': Take aspirin and drink some water: \n"
 )
 match choice:
     case "1":
-        print(f"\nHere are your items: {backpack}\n")
-    case "2":
         changing_items()
-    case "3":
-        if "aspirin" or "water" not in backpack:
+    case "2":
+        if ("aspirin" or "water") not in Player.backpack:
             print("You should first change you items")
             changing_items()
             print("Now you can take aspirin and drink water...")
-            backpack.remove("aspirin") and ("water")
+            using_items()
         else:
-            backpack.remove("aspirin") and ("water")
-            # backpack.remove("water")
+            using_items()
 
+Player.show_backpack(Player)
 
-# "What do you think you will need to complete the next task"
-# try to quess
-# right answer = 3 items: tablet, glasses and chocolate
+# print(f"\nHere are your items in backpack: {Player.backpack}\n")
+
+print(
+    "What do you think you will need to complete the next task? Try to quess and will see if you were right. The second task is to write a short note including 5 words from the list below and also 5 characters 'a', and 5 'e'. So you will need a tablet, glasses and choclate. If you don't have them you know what to do..."
+)
 
 
 # changing_items()

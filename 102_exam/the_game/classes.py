@@ -8,6 +8,9 @@ class Player:
     def __str__(self):
         return f"My name is {self.name}. Let's play!"
 
+    def show_backpack(self):
+        print(f"\nHere are your items in backpack: {Player.backpack}\n")
+
 
 class Cat:
     sound = "Miauuuuu!!!"
@@ -54,15 +57,6 @@ class Basement(Room):
 
     def __str__(self):
         return super().__str__() + f"Here you can find everything. Safe too!"
-
-
-# class Gym:
-#     def __init__(self, name, calories_per_min):
-#         self.name = name
-#         self.calories_per_min = calories_per_min
-
-#     def burnedCalories(calories_per_min, exercise_time):
-#         return float(calories_per_min * exercise_time)
 
 
 class Gym:
