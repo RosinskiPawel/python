@@ -38,13 +38,15 @@ Player.show_backpack(Player)
 # print(f"\nHere are your items in backpack: {Player.backpack}\n")
 
 print(
-    "What do you think you will need to complete the next task? Try to quess and will see if you were right. The second task is to write a short note including 5 words from the list below and also 5 characters 'a', and 5 'e'. So you will need a tablet, glasses and choclate. If you don't have them you know what to do..."
+    "What do you think you will need to complete the next task? Try to quess and we will see if you were right. The second task is to write a short note including 5 words from the list below and also 5 characters 'a', and 5 'e'. So you will need a tablet, glasses and choclate. If you don't have them you know what to do..."
 )
 
+help()
 
-# changing_items()
+write_note()
 
-# 3 chcesz pic i boli cie noga, teraz sprawdzasz, czy masz wode/cole i apteczke
+# Wykonałeś wszystkie zadania przed tobą ostatnie, najważniejsze. Musisz otworzyć sejf. Aby to zrobić, potrzebujesz okulary i kota. Sprawdź, czy to masz w plecaku, jeśli nie, wiesz co robić...
+
 
 # godz = time.localtime()
 # h = godz.tm_hour

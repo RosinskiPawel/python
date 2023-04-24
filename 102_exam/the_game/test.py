@@ -20,21 +20,39 @@ import time
 # print(time_lapsed)
 
 
-class Gym:
-    calories_per_min = 0
+# class Gym:
+#     calories_per_min = 0
 
-    def __init__(self, name):
-        self.name = name
-        if self.name == "squats":
-            self.calories_per_min = 7
-        elif self.name == "push_ups":
-            self.calories_per_min = 12
+#     def __init__(self, name):
+#         self.name = name
+#         if self.name == "squats":
+#             self.calories_per_min = 7
+#         elif self.name == "push_ups":
+#             self.calories_per_min = 12
 
-        # self.calories_per_min = calories_per_min
+#         # self.calories_per_min = calories_per_min
 
-    def burnedCalories(calories_per_min, exercise_time):
-        return float(calories_per_min * exercise_time)
+#     def burnedCalories(calories_per_min, exercise_time):
+#         return float(calories_per_min * exercise_time)
 
 
-chuj = Gym("kurwa", 12)
-print(Gym.burnedCalories(chuj.calories_per_min, 4))
+words = "day", "night", "you", "me", "we", "are", "all", "happy"
+
+
+def write_note():
+    temp_list = []
+    print(f"Here is the list of words. Pleas use minimum five of them: {words}")
+    while True:
+        note = input("Please write a few sentences: ")
+        for i in words:
+            if i in note.split():
+                temp_list.append(i)
+        if len(temp_list) < 5:
+            print("Try again!")
+            True
+        else:
+            print("The task completed")
+            break
+
+
+write_note()

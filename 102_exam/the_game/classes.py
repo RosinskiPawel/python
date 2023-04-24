@@ -2,8 +2,9 @@ class Player:
     backpack = []
     time_score = 0
 
-    def __init__(self, name):
+    def __init__(self, name, birth_date):
         self.name = name
+        self.birth_date = birth_date
 
     def __str__(self):
         return f"My name is {self.name}. Let's play!"

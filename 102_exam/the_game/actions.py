@@ -13,6 +13,7 @@ pool_items = (
     "flashlight",
     "home map",
 )
+words = "day", "night", "you", "me", "we", "are", "all", "happy"
 
 
 def openning():
@@ -99,6 +100,22 @@ def help():
         changing_items()
     elif option == "d":
         using_items()
+
+
+def write_note():
+    temp_list = []
+    print(f"Here is the list of words. Pleas use minimum five of them: {words}")
+    while True:
+        note = input("Please write a few sentences: ")
+        for i in words:
+            if i in note.split():
+                temp_list.append(i)
+        if len(temp_list) < 5:
+            print("Try again!")
+            True
+        else:
+            print("The task completed")
+            break
 
 
 # def print_to_file():
