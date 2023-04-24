@@ -19,7 +19,6 @@ def openning():
     f = open("the_game\\text\\intro.txt")
     print(f.read())
     player = Player(name=input("\nWhat's your name? \n"))
-    # name = input("What's your name? ")
     question_1 = input(
         f"\n{player.name}, are you ready for the first task? Y/N \n"
     ).lower()
@@ -81,3 +80,27 @@ def changing_items():
             item_to_add = input(f"\nPlease choose the {i+1}.item to add: ")
         Player.backpack.append(item_to_add)
     print(f"\nHere are your new items: {Player.backpack}.")
+
+
+def using_items():
+    num_of_items_use = int(input("\nHow many items do you want to use? "))
+    for i in range(num_of_items_use):
+        item_to_use = input(f"\nPlease choose the {i+1}.item to use: ")
+        Player.backpack.remove(item_to_use)
+
+
+def help():
+    option = input(
+        "Choose the option:\n 'a' = checking the backpack\n 's' = changing items\n 'd' = using items\n"
+    )
+    if option == "a":
+        Player.show_backpack(Player)
+    elif option == "s":
+        changing_items()
+    elif option == "d":
+        using_items()
+
+
+# def print_to_file():
+
+# def read_from_file():
