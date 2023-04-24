@@ -1,4 +1,6 @@
 import time
+from datetime import datetime
+from classes import *
 
 # def time_convert(sec):
 #     mins = sec // 60
@@ -36,23 +38,32 @@ import time
 #         return float(calories_per_min * exercise_time)
 
 
-words = "day", "night", "you", "me", "we", "are", "all", "happy"
+# words = "day", "night", "you", "me", "we", "are", "all", "happy"
 
 
-def write_note():
-    temp_list = []
-    print(f"Here is the list of words. Pleas use minimum five of them: {words}")
-    while True:
-        note = input("Please write a few sentences: ")
-        for i in words:
-            if i in note.split():
-                temp_list.append(i)
-        if len(temp_list) < 5:
-            print("Try again!")
-            True
-        else:
-            print("The task completed")
-            break
+# def write_note():
+#     temp_list = []
+#     print(f"Here is the list of words. Pleas use minimum five of them: {words}")
+#     while True:
+#         note = input("Please write a few sentences: ")
+#         for i in words:
+#             if i in note.split():
+#                 temp_list.append(i)
+#         if len(temp_list) < 5:
+#             print("Try again!")
+#             True
+#         else:
+#             print("Well done. The task is completed")
+#             break
 
 
-write_note()
+# player = Player(
+#     name=input("\nPlease input your name... \n"),
+#     birth_date=input(
+#         "\n...and date of birth in format RRRRMMDD. This information will be needed in the later stage of the game: \n"
+#     ),
+# )
+
+date_now = datetime.now()
+print(date_now)
+print("".join((str(date_now).split())[0].split("-")))

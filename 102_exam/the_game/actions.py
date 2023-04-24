@@ -1,5 +1,6 @@
 import time
 from classes import *
+from datetime import datetime
 
 backpack = []
 pool_items = (
@@ -13,13 +14,30 @@ pool_items = (
     "flashlight",
     "home map",
 )
-words = "day", "night", "you", "me", "we", "are", "all", "happy"
+
+words = (
+    "day",
+    "night",
+    "you",
+    "me",
+    "we",
+    "are",
+    "all",
+    "happy",
+    "I",
+    "sun",
+)
 
 
 def openning():
     f = open("the_game\\text\\intro.txt")
     print(f.read())
-    player = Player(name=input("\nWhat's your name? \n"))
+    player = Player(
+        name=input("\nPlease input your name... \n"),
+        birth_date=input(
+            "\n...and date of birth in format RRRRMMDD. This information will be needed in the later stage of the game: \n"
+        ),
+    )
     question_1 = input(
         f"\n{player.name}, are you ready for the first task? Y/N \n"
     ).lower()
@@ -83,6 +101,20 @@ def changing_items():
     print(f"\nHere are your new items: {Player.backpack}.")
 
 
+def fill_up_backpack():
+    max_numb_items = 3
+    numb_items = len(Player.backpack)
+    numb_to_add = max_numb_items - numb_items
+    print(f"You can add {numb_to_add} items.")
+    for i in range(numb_to_add):
+        item = input(f"\nAdd {i+1}. item: ")
+        while item not in pool_items:
+            print("\nWrong item")
+            item = input(f"\nAdd {i+1}. item: ")
+        Player.backpack.append(item)
+    print(f"\nThis is your backpack: {Player.backpack}.")
+
+
 def using_items():
     num_of_items_use = int(input("\nHow many items do you want to use? "))
     for i in range(num_of_items_use):
@@ -91,15 +123,23 @@ def using_items():
 
 
 def help():
-    option = input(
-        "Choose the option:\n 'a' = checking the backpack\n 's' = changing items\n 'd' = using items\n"
-    )
-    if option == "a":
-        Player.show_backpack(Player)
-    elif option == "s":
-        changing_items()
-    elif option == "d":
-        using_items()
+    while True:
+        option = input(
+            "Choose the option:\n 'a' = checking the backpack\n 's' = changing items\n 'd' = using items\n 'f' = filling up the backpack\n"
+        )
+        if option == "a":
+            Player.show_backpack(Player)
+        elif option == "s":
+            changing_items()
+        elif option == "d":
+            using_items()
+        elif option == "f":
+            fill_up_backpack()
+        question = input("Wanna see the options again? (y/n):  ").lower()
+        if question == "y":
+            True
+        else:
+            break
 
 
 def write_note():
@@ -114,8 +154,14 @@ def write_note():
             print("Try again!")
             True
         else:
-            print("The task completed")
+            print("Well done. The task is completed")
             break
+
+
+def safe_code():
+    now = datetime.now()
+    date_now = "".join((str(now).split())[0].split("-"))
+    return date_now - Player.birth_date
 
 
 # def print_to_file():

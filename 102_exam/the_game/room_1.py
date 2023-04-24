@@ -1,6 +1,7 @@
 import time, pathlib, random
 from classes import *
 from actions import *
+from datetime import datetime
 
 
 openning()
@@ -35,17 +36,15 @@ match choice:
 
 Player.show_backpack(Player)
 
-# print(f"\nHere are your items in backpack: {Player.backpack}\n")
-
 print(
-    "What do you think you will need to complete the next task? Try to quess and we will see if you were right. The second task is to write a short note including 5 words from the list below and also 5 characters 'a', and 5 'e'. So you will need a tablet, glasses and choclate. If you don't have them you know what to do..."
+    "What do you think you will need to complete the next task? Try to quess and we will see if you were right. The second task is to write a short note including 5 words from the list below. So you will need a tablet, glasses and choclate. If you don't have them you know what to do...\n"
 )
 
 help()
 
 write_note()
 
-# Wykonałeś wszystkie zadania przed tobą ostatnie, najważniejsze. Musisz otworzyć sejf. Aby to zrobić, potrzebujesz okulary i kota. Sprawdź, czy to masz w plecaku, jeśli nie, wiesz co robić...
+# You have completed all the tasks, the last and most important one is ahead of you. You must open the safe. To do this, you need glasses and a cat. Check if you have them in your backpack, if not, you know what to do....
 
 
 # godz = time.localtime()
