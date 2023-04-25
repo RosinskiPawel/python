@@ -4,66 +4,59 @@ from actions import *
 from datetime import datetime
 
 
+# if task_one() > 20:
+#     print("You are to slowly! Try again!")
+#     task_one()
+# else:
+#     print(
+#         "\nYou feel thirsty and have a headache. Check if you have aspirin and water in your backpack. If you do, use them, otherwise you need to replenish your backpack.\n"
+#     )
+
+
 openning()
-
 backpack_packing_init()
-print()
+while True:
+    min_time = 20
+    if task_one() > min_time:
+        print("You are to slowly! Try again!\n")
+        True
+    else:
+        print(
+            "\nYou feel thirsty and have a headache. Check if you have aspirin and water in your backpack. If you do, use them, otherwise you need to replenish your backpack.\n"
+        )
+        break
+while True:
+    if input("Press 'o' to see options to choose\n") != "o":
+        True
+    else:
+        help()
+        break
 
-if task_one() > 20:
-    print("You are to slowly! Try again!")
-    task_one()
-else:
-    print(
-        "\nYou feel thirsty and have a headache. Check if you have aspirin and water in your backpack. If you do, use them, otherwise you need to replenish your backpack.\n"
-    )
-Player.show_backpack(Player)
-# print(f"\nHere are your items in backpack: {Player.backpack}\n")
 
-choice = input(
-    "\nWhat do you want to do now? '1' Change the items in my backpack or '2': Take aspirin and drink some water: \n"
-)
-match choice:
-    case "1":
-        changing_items()
-    case "2":
-        if ("aspirin" or "water") not in Player.backpack:
-            print("You should first change you items")
-            changing_items()
-            print("Now you can take aspirin and drink water...")
-            using_items()
-        else:
-            using_items()
+# choice = input(
+#     "\nWhat do you want to do now? '1' Change the items in my backpack or '2': Take aspirin and drink some water: \n"
+# )
+# match choice:
+#     case "1":
+#         changing_items()
+#         using_items()
+#     case "2":
+#         if ("aspirin" or "water") not in Player.backpack:
+#             print("You should first change you items")
+#             changing_items()
+#             print("Now you can take aspirin and drink water...")
+#             using_items()
+#         else:
+#             using_items()
 
-Player.show_backpack(Player)
+if input(f"\nIf you are ready for the 2. task, press Enter \n") == "":
+    print("Let's continue the game!")
 
-print(
-    "What do you think you will need to complete the next task? Try to quess and we will see if you were right. The second task is to write a short note including 5 words from the list below. So you will need a tablet, glasses and choclate. If you don't have them you know what to do...\n"
-)
+taks_two_text = open("the_game\\text\\task2.txt")
+print(taks_two_text.read())
 
 help()
 
 write_note()
 
-# You have completed all the tasks, the last and most important one is ahead of you. You must open the safe. To do this, you need glasses and a cat. Check if you have them in your backpack, if not, you know what to do....
-
-
-# godz = time.localtime()
-# h = godz.tm_hour
-# min = godz.tm_min
-# print(f"It ist {h}:{min} right now!")
-
-
-# def time_convert(sec):
-#     mins = sec // 60
-#     sec = sec % 60
-#     hours = mins // 60
-#     # mins = mins % 60
-#     print("Time Lapsed = {0}:{1}:{2}".format(int(hours), int(mins), sec))
-
-
-# input("Press Enter to start")
-# start_time = time.time()
-# input("Press Enter to stop")
-# end_time = time.time()
-# time_lapsed = round((end_time - start_time), 2)
-# time_convert(time_lapsed)
+# You have completed all the tasks, the last and most important one is ahead of you. You must open the safe. To do this, you need can opener, calculator and the cat. Check if you have them in your backpack, if not, you know what to do....

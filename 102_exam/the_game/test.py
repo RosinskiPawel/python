@@ -1,6 +1,7 @@
 import time
 from datetime import datetime
 from classes import *
+from actions import *
 
 # def time_convert(sec):
 #     mins = sec // 60
@@ -64,6 +65,19 @@ from classes import *
 #     ),
 # )
 
-date_now = datetime.now()
-print(date_now)
-print("".join((str(date_now).split())[0].split("-")))
+# date_now = datetime.now()
+# print(date_now)
+# print("".join((str(date_now).split())[0].split("-")))
+
+# while True:
+#     if task_one() > 20:
+#         print("You are to slowly! Try again!")
+#         True
+#     else:
+#         print(
+#             "\nYou feel thirsty and have a headache. Check if you have aspirin and water in your backpack. If you do, use them, otherwise you need to replenish your backpack.\n"
+#         )
+#         break
+
+if input(f"\n{Player.name}, if you are ready for the 2. task, press Enter \n") == "":
+    print("Let's continue the game!")

@@ -73,4 +73,4 @@ class Gym:
         # self.calories_per_min = calories_per_min
 
     def burnedCalories(calories_per_min, exercise_time):
-        return float(calories_per_min * exercise_time)
+        return round((calories_per_min * exercise_time), 2)

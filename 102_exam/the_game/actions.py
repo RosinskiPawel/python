@@ -7,12 +7,12 @@ pool_items = (
     "cat",
     "can opener",
     "aspirin",
-    "chocolate bar",
+    "chocolate",
     "water",
     "tablet",
     "glasses",
     "flashlight",
-    "home map",
+    "calculator",
 )
 
 words = (
@@ -38,20 +38,14 @@ def openning():
             "\n...and date of birth in format RRRRMMDD. This information will be needed in the later stage of the game: \n"
         ),
     )
-    question_1 = input(
-        f"\n{player.name}, are you ready for the first task? Y/N \n"
-    ).lower()
-    if question_1 == "y":
+    if input(f"\n{player.name}, press Enter to start \n") == "":
         print("Let's start!")
-    else:
-        print("Bye!")
-        return
+    return player
 
 
 def task_one():
     task1 = open("the_game\\text\\task1.txt")
     print(task1.read())
-
     choosen_excercise = Gym(
         input("\nWhat excercise do you choose? \nSquats or push_ups\n").lower()
     )
@@ -60,10 +54,9 @@ def task_one():
     start_time = time.time()
     input("Press Enter to stop\n")
     end_time = time.time()
-
     time_total = round((end_time - start_time), 2)
     print(
-        f"\nThis is your time: {time_total} seconds. You have burned ca. {Gym.burnedCalories(choosen_excercise.calories_per_min, time_total)} calories"
+        f"\nThis is your time: {time_total} seconds. You have burned ca. {Gym.burnedCalories(choosen_excercise.calories_per_min, time_total)} calories.\n"
     )
     return time_total
 
@@ -81,7 +74,7 @@ def backpack_packing_init():
             print("\nWrong item")
             item = input(f"\nAdd {i+1}. item: ")
         Player.backpack.append(item)
-    print(f"\nYou have chosen {Player.backpack}.")
+    print(f"\nYou have chosen {Player.backpack}.\n")
 
 
 def changing_items():
@@ -116,6 +109,7 @@ def fill_up_backpack():
 
 
 def using_items():
+    Player.show_backpack(Player)
     num_of_items_use = int(input("\nHow many items do you want to use? "))
     for i in range(num_of_items_use):
         item_to_use = input(f"\nPlease choose the {i+1}.item to use: ")
