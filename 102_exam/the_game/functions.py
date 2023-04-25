@@ -35,12 +35,12 @@ def openning():
     player = Player(
         name=input("\nPlease input your name... \n"),
         birth_date=input(
-            "\n...and date of birth in format RRRRMMDD. This information will be needed in the later stage of the game: \n"
+            "\n...and date of birth in format YYYYMMDD. This information will be needed in the later stage of the game: \n"
         ),
     )
     if input(f"\n{player.name}, press Enter to start \n") == "":
         print("Let's start!")
-    return player
+    return player.birth_date
 
 
 def task_one():
@@ -116,7 +116,7 @@ def using_items():
         Player.backpack.remove(item_to_use)
 
 
-def help():
+def options_to_choose():
     while True:
         option = input(
             "Choose the option:\n 'a' = checking the backpack\n 's' = changing items\n 'd' = using items\n 'f' = filling up the backpack\n"
@@ -136,16 +136,18 @@ def help():
             break
 
 
-def write_note():
+def task_two():
     temp_list = []
-    print(f"Here is the list of words. Pleas use minimum five of them: {words}")
+    print(f"\nHere is the list of words. Please use minimum five of them: {words}")
     while True:
-        note = input("Please write a few sentences: ")
+        note = input("\nPlease write a few sentences:\n ")
         for i in words:
             if i in note.split():
                 temp_list.append(i)
         if len(temp_list) < 5:
-            print("Try again!")
+            print(
+                "You haven't used at least five words from the list. Please try again!"
+            )
             True
         else:
             print("Well done. The task is completed")
@@ -155,7 +157,19 @@ def write_note():
 def safe_code():
     now = datetime.now()
     date_now = "".join((str(now).split())[0].split("-"))
-    return date_now - Player.birth_date
+    return date_now - Player.self.birth_date
+
+
+def task_three():
+    while True:
+        subtraction_result = input("Please enter your result of substraction: ")
+        safe_code()
+        if safe_code != subtraction_result:
+            print("Wrong value, please try again!")
+            return True
+        else:
+            print("Excellent. You did it!")
+            break
 
 
 # def print_to_file():

@@ -1,7 +1,7 @@
 import time
 from datetime import datetime
 from classes import *
-from actions import *
+from functions import *
 
 # def time_convert(sec):
 #     mins = sec // 60
@@ -79,5 +79,41 @@ from actions import *
 #         )
 #         break
 
-if input(f"\n{Player.name}, if you are ready for the 2. task, press Enter \n") == "":
-    print("Let's continue the game!")
+# print(open("the_game\\text\\task3.txt").read())
+
+player = ""
+
+
+def openning():
+    f = open("the_game\\text\\intro.txt")
+    print(f.read())
+    player = Player(
+        name=input("\nPlease input your name... \n"),
+        birth_date=input(
+            "\n...and date of birth in format YYYYMMDD. This information will be needed in the later stage of the game: \n"
+        ),
+    )
+    print(player.name)
+    print(player.birth_date)
+
+
+def safe_code():
+    now = datetime.now()
+    date_now = "".join((str(now).split())[0].split("-"))
+    return int(date_now - Player.birth_date)
+
+
+def task_three():
+    while True:
+        subtraction_result = input("Please enter your result of substraction: ")
+        safe_code()
+        if safe_code != subtraction_result:
+            print("Wrong value, please try again!")
+            return True
+        else:
+            print("Excellent. You did it!")
+            break
+
+
+openning()
+task_three()

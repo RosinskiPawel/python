@@ -1,6 +1,6 @@
 import time, pathlib, random
 from classes import *
-from actions import *
+from functions import *
 from datetime import datetime
 
 
@@ -21,15 +21,13 @@ while True:
         print("You are to slowly! Try again!\n")
         True
     else:
-        print(
-            "\nYou feel thirsty and have a headache. Check if you have aspirin and water in your backpack. If you do, use them, otherwise you need to replenish your backpack.\n"
-        )
+        print(open("the_game\\text\\task1_after.txt").read())
         break
 while True:
     if input("Press 'o' to see options to choose\n") != "o":
         True
     else:
-        help()
+        options_to_choose()
         break
 
 
@@ -52,11 +50,9 @@ while True:
 if input(f"\nIf you are ready for the 2. task, press Enter \n") == "":
     print("Let's continue the game!")
 
-taks_two_text = open("the_game\\text\\task2.txt")
-print(taks_two_text.read())
-
-help()
-
-write_note()
-
-# You have completed all the tasks, the last and most important one is ahead of you. You must open the safe. To do this, you need can opener, calculator and the cat. Check if you have them in your backpack, if not, you know what to do....
+print(open("the_game\\text\\task2.txt").read())
+options_to_choose()
+task_two()
+print(open("the_game\\text\\task3.txt").read())
+options_to_choose()
+task_three()

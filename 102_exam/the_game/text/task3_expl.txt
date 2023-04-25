@@ -1,0 +1,3 @@
+
+To open the safe, you need to enter a code. To do this, subtract your birthdate (in the format YYYYMMDD) from today's date (also in the same format), and use the resulting number as the code.
+
