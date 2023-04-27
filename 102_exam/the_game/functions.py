@@ -2,6 +2,7 @@ import time
 from classes import *
 from datetime import datetime
 
+
 backpack = []
 pool_items = (
     "cat",
@@ -29,25 +30,11 @@ words = (
 )
 
 
-def openning():
-    f = open("the_game\\text\\intro.txt")
-    print(f.read())
-    player = Player(
-        name=input("\nPlease input your name... \n"),
-        birth_date=input(
-            "\n...and date of birth in format YYYYMMDD. This information will be needed in the later stage of the game: \n"
-        ),
-    )
-    if input(f"\n{player.name}, press Enter to start \n") == "":
-        print("Let's start!")
-    return player.birth_date
-
-
 def task_one():
     task1 = open("the_game\\text\\task1.txt")
     print(task1.read())
     choosen_excercise = Gym(
-        input("\nWhat excercise do you choose? \nSquats or push_ups\n").lower()
+        input("\nWhat excercise do you choose? \nsquats or push_ups\n").lower()
     )
 
     input("\nPress Enter to start\n")
@@ -59,6 +46,23 @@ def task_one():
         f"\nThis is your time: {time_total} seconds. You have burned ca. {Gym.burnedCalories(choosen_excercise.calories_per_min, time_total)} calories.\n"
     )
     return time_total
+
+
+def task_one_result():
+    while True:
+        min_time = 20
+        if task_one() > min_time:
+            print("You are to slowly! Try again!\n")
+            True
+        else:
+            print(open("the_game\\text\\task1_after.txt").read())
+            break
+    while True:
+        if input("Press 'o' to see options to choose\n") != "o":
+            True
+        else:
+            options_to_choose()
+            break
 
 
 def backpack_packing_init():
@@ -79,18 +83,23 @@ def backpack_packing_init():
 
 def changing_items():
     print(f"\nHere are your items: {Player.backpack}.")
-    num_of_items_del = int(input("\nHow many items do you want to delete? "))
 
-    for i in range(num_of_items_del):
-        item_to_delete = input(f"\nPlease choose the {i+1}.item to delete: ")
-        Player.backpack.remove(item_to_delete)
+    try:
+        num_of_items_del = int(input("\nHow many items do you want to delete? "))
+    except ValueError:
+        print("Please enter only numbers.")
 
-    for i in range(num_of_items_del):
-        item_to_add = input(f"\nPlease choose the {i+1}.item to add: ")
-        while item_to_add not in pool_items:
-            print("\nWrong item")
+    else:
+        for i in range(num_of_items_del):
+            item_to_delete = input(f"\nPlease choose the {i+1}.item to delete: ")
+            Player.backpack.remove(item_to_delete)
+
+        for i in range(num_of_items_del):
             item_to_add = input(f"\nPlease choose the {i+1}.item to add: ")
-        Player.backpack.append(item_to_add)
+            while item_to_add not in pool_items:
+                print("\nWrong item")
+                item_to_add = input(f"\nPlease choose the {i+1}.item to add: ")
+            Player.backpack.append(item_to_add)
     print(f"\nHere are your new items: {Player.backpack}.")
 
 
@@ -110,10 +119,14 @@ def fill_up_backpack():
 
 def using_items():
     Player.show_backpack(Player)
-    num_of_items_use = int(input("\nHow many items do you want to use? "))
-    for i in range(num_of_items_use):
-        item_to_use = input(f"\nPlease choose the {i+1}.item to use: ")
-        Player.backpack.remove(item_to_use)
+    try:
+        num_of_items_use = int(input("\nHow many items do you want to use? "))
+    except ValueError:
+        print("Please, enter only numbers!")
+    else:
+        for i in range(num_of_items_use):
+            item_to_use = input(f"\nPlease choose the {i+1}.item to use: ")
+            Player.backpack.remove(item_to_use)
 
 
 def options_to_choose():
@@ -138,7 +151,9 @@ def options_to_choose():
 
 def task_two():
     temp_list = []
-    print(f"\nHere is the list of words. Please use minimum five of them: {words}")
+    print(
+        f"\nHere is the list of words. Please write a short note including at least 5 words from the list: {words}. Be careful, because it's not as simple as it seems."
+    )
     while True:
         note = input("\nPlease write a few sentences:\n ")
         for i in words:
@@ -150,28 +165,26 @@ def task_two():
             )
             True
         else:
-            print("Well done. The task is completed")
+            print("\nWell done. The task is completed")
+            Player.backpack.clear()
             break
-
-
-def safe_code():
-    now = datetime.now()
-    date_now = "".join((str(now).split())[0].split("-"))
-    return date_now - Player.self.birth_date
 
 
 def task_three():
+    print(open("the_game\\text\\task3_expl.txt").read())
+    now = datetime.now()
+    date_now = int("".join((str(now).split())[0].split("-")))
+    birt_date = int(input("Enter you birth date in format YYYYMMDD:\n"))
+    code = date_now - birt_date
+
     while True:
-        subtraction_result = input("Please enter your result of substraction: ")
-        safe_code()
-        if safe_code != subtraction_result:
+        subtraction_result = int(input("Please enter your result of substraction: "))
+        if subtraction_result != code:
             print("Wrong value, please try again!")
-            return True
+            # True
         else:
-            print("Excellent. You did it!")
+            print(
+                "Excellent. You did it! You have found the can of tune. Open it now!!!!"
+            )
+            print(Cat(Cat.name))
             break
-
-
-# def print_to_file():
-
-# def read_from_file():

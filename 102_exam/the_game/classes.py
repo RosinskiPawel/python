@@ -1,6 +1,5 @@
 class Player:
     backpack = []
-    time_score = 0
 
     def __init__(self, name, birth_date):
         self.name = name
@@ -15,6 +14,7 @@ class Player:
 
 class Cat:
     sound = "Miauuuuu!!!"
+    name = "Crazy"
 
     def __init__(self, name):
         self.name = name
