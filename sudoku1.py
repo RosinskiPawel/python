@@ -1,44 +1,43 @@
 import random
 
 
-# class Row:
-#     # randseq1 = []
+class Row:
+    # randseq1 = []
 
-#     def __init__(self, name):
-#         self.name = name
+    def __init__(self, name):
+        self.name = name
 
-#     def numb(self):
-#         import random
+    def numb(self):
+        import random
 
-#         randseq1 = random.sample(range(1, 10), 9)
-#         print(randseq1)
-
-
-# row1 = Row("one")
+        randseq1 = random.sample(range(1, 10), 9)
+        print(randseq1)
 
 
-# class Row2(Row):
-#     def __init__(self, name):
-#         super().__init__(name)
-
-#     def numbnext(self):
-
-#         randseq2 = []
-
-#         for i in range(9):
-#             while True:
-#                 x = random.sample(range(1, 10), 1)
-#                 if x != row1.numb()[i - 1]:
-#                     randseq2.append(x)
-#                     return False
-#                 else:
-#                     True
-#         print(randseq2)
+row1 = Row("one")
 
 
-# row2 = Row2("two")
-# row1.numb()
-# row2.numb()
+class Row2(Row):
+    def __init__(self, name):
+        super().__init__(name)
+
+    def numbnext(self):
+        randseq2 = []
+
+        for i in range(9):
+            while True:
+                x = random.sample(range(1, 10), 1)
+                if x != row1.numb()[i - 1]:
+                    randseq2.append(x)
+                    return False
+                else:
+                    True
+        print(randseq2)
+
+
+row2 = Row2("two")
+row1.numb()
+row2.numb()
 
 
 # one = random.sample(range(1, 10), 9)
@@ -90,31 +89,43 @@ import random
 # print(master)
 # print(master[0])
 # --------------------------------
-master = []
-masterpool = 1, 2, 3, 4, 5, 6, 7, 8, 9
-pool = list(masterpool)
-for i in range(3):
-    x = random.sample(pool, 3)
-    for i in range(3):
-        pool.remove(x[i - 1])
-    master.append(x)
+# center = []
+# masterpool = 1, 2, 3, 4, 5, 6, 7, 8, 9
+# pool = list(masterpool)
+# for i in range(3):
+#     x = random.sample(pool, 3)
+#     for i in range(3):
+#         pool.remove(x[i - 1])
+#     center.append(x)
 
+# mac0_1 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+# mac2_1 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+# pool = list(masterpool)
 
-m1 = [0, 0, 0]
-mac1 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-mac3 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-pool = list(masterpool)
+# for i in range(3):
+#     pool.remove(center[i - 1][0])
+# y = random.sample(pool, 3)
+# for i in range(3):
+#     pool.remove(y[i - 1])
+# for i in range(3):
+#     mac0_1[i - 1][0] = y[i - 1]
+# y2 = random.sample(pool, 3)
+# for i in range(3):
+#     mac2_1[i - 1][0] = y2[i - 1]
+# print(f"{mac0_1[0]}\n{mac0_1[1]}\n{mac0_1[2]}")
+# print(f"{center[0]}\n{center[1]}\n{center[2]}")
+# print(f"{mac2_1[0]}\n{mac2_1[1]}\n{mac2_1[2]}")
 
-for i in range(3):
-    pool.remove(master[i - 1][0])
-y = random.sample(pool, 3)
-for i in range(3):
-    pool.remove(y[i - 1])
-for i in range(3):
-    mac1[i - 1][0] = y[i - 1]
-y2 = random.sample(pool, 3)
-for i in range(3):
-    mac3[i - 1][0] = y2[i - 1]
-print(f"{mac1[0]}\n{mac1[1]}\n{mac1[2]}")
-print(f"{master[0]}\n{master[1]}\n{master[2]}")
-print(f"{mac3[0]}\n{mac3[1]}\n{mac3[2]}")
+# # można też sprawdzić opcję "if not in" i tworzyć listy pionowe
+# pool = list(masterpool)
+
+# temp_pool = []
+# for i in range(3):
+#     temp_pool.append(mac0_1[i - 1][0])
+#     temp_pool.append(center[i - 1][1])
+# temp_pool = list(set(temp_pool))
+
+# for i in range(len(temp_pool)):
+#     pool.remove(temp_pool[i - 1])
+
+# print(pool)
