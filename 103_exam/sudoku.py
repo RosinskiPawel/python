@@ -21,6 +21,7 @@ def build_rows(a, b):
 
 def check_rows():
     for row in rows:
+        # 2D list -> 1D list
         temp_row = [ele for sublist in row for ele in sublist]
         temp_row.sort()
         if sum(temp_row) == 45 and temp_row == sorted:
